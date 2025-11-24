@@ -1,1 +1,358 @@
-# my-portfolio.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark James Rogelio - Portfolio</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+    const { Mail, Phone, MapPin, Code, Briefcase, GraduationCap, Award } = lucide;
+
+    function Portfolio() {
+      const [activeSection, setActiveSection] = useState('about');
+
+      const scrollToSection = (sectionId) => {
+        setActiveSection(sectionId);
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      const Icon = ({ icon: IconComponent, ...props }) => {
+        return <i data-lucide={IconComponent} {...props} />;
+      };
+
+      React.useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+          {/* Navigation */}
+          <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-purple-500/20">
+            <div className="max-w-6xl mx-auto px-4 py-4">
+              <div className="flex justify-between items-center">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  MJ Rogelio
+                </h1>
+                <div className="flex gap-6">
+                  {['about', 'projects', 'skills', 'education'].map((section) => (
+                    <button
+                      key={section}
+                      onClick={() => scrollToSection(section)}
+                      className={`capitalize hover:text-purple-400 transition-colors ${
+                        activeSection === section ? 'text-purple-400' : 'text-gray-300'
+                      }`}
+                    >
+                      {section}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Hero Section */}
+          <section className="pt-32 pb-20 px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center space-y-6">
+                <div className="inline-block">
+                  <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold">
+                    MJ
+                  </div>
+                </div>
+                <h1 className="text-5xl md:text-6xl font-bold">
+                  <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                    Mark James Rogelio
+                  </span>
+                </h1>
+                <p className="text-2xl text-purple-300">IT Student | Aspiring Web Developer</p>
+                <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                  A tech student with experience in educational platforms, system integration, and web development. 
+                  Proficient in PHP, MySQL, and front-end technologies, skilled in creating user interfaces and improving operations.
+                </p>
+                <div className="flex gap-4 justify-center flex-wrap">
+                  <a href="mailto:markjamesrogelio@gmail.com" className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg transition-colors">
+                    <i data-lucide="mail" className="w-5 h-5"></i> Email Me
+                  </a>
+                  <a href="tel:+639603247894" className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-colors">
+                    <i data-lucide="phone" className="w-5 h-5"></i> Call
+                  </a>
+                </div>
+                <div className="flex gap-4 justify-center text-gray-400 text-sm">
+                  <span className="flex items-center gap-2">
+                    <i data-lucide="map-pin" className="w-4 h-4"></i> Tabe, Guiguinto, Bulacan
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="py-20 px-4 bg-slate-900/50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  About Me
+                </span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
+                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Soft Skills</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    {['Problem Solving & Troubleshooting', 'Analytical & Critical Thinking', 'Communication & Interpersonal Skills', 'Team Collaboration', 'Time Management', 'Adaptability'].map((skill) => (
+                      <li key={skill} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
+                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Languages</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span>English</span>
+                        <span className="text-purple-400">Fluent</span>
+                      </div>
+                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full w-11/12 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span>Tagalog</span>
+                        <span className="text-purple-400">Native</span>
+                      </div>
+                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full w-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Projects Section */}
+          <section id="projects" className="py-20 px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Featured Projects
+                </span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* EAS-CE Project */}
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
+                  <div className="flex items-start justify-between mb-4">
+                    <i data-lucide="briefcase" className="text-purple-400 w-8 h-8"></i>
+                    <span className="text-sm text-gray-400">November 2025</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-purple-300">EAS-CE</h3>
+                  <p className="text-sm text-gray-400 mb-4">Easy Access Students Clearance and E-Documents</p>
+                  <p className="text-gray-300 mb-4">
+                    Project Leader | Full Stack Developer
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Developed full web-based clearance system for Dr. Yanga's Colleges, Inc.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Built secure authentication with role-based access for multiple user types</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Implemented automated workflows with real-time status updates</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Enhanced security with SSL, encryption, and session validation</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'].map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-purple-600/30 text-purple-300 rounded-full text-xs">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* LEARNIT Project */}
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105">
+                  <div className="flex items-start justify-between mb-4">
+                    <i data-lucide="code" className="text-purple-400 w-8 h-8"></i>
+                    <span className="text-sm text-gray-400">March 2025</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-purple-300">LEARNIT</h3>
+                  <p className="text-sm text-gray-400 mb-4">Learning. Educational. Activities. Resources and Networking. for Integrated. Teaching</p>
+                  <p className="text-gray-300 mb-4">
+                    Debugger | UI/UX Designer | Web Designer
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Designed clean and intuitive UI/UX using Figma</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Built responsive web pages with HTML, CSS, JavaScript</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Debugged UI components and fixed layout issues</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"></div>
+                      <span>Collaborated with dev team for PHP backend integration</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {['Figma', 'HTML/CSS', 'JavaScript', 'PHP'].map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-purple-600/30 text-purple-300 rounded-full text-xs">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Skills Section */}
+          <section id="skills" className="py-20 px-4 bg-slate-900/50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Technical Skills
+                </span>
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Languages</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Python', 'Java', 'HTML/CSS', 'PHP'].map((lang) => (
+                      <span key={lang} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Skills</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['AI', 'Prompt Engineering', 'UI/UX Design'].map((skill) => (
+                      <span key={skill} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Tools</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['SQL', 'Git/Github', 'React', 'OpenAI', 'VS Code', 'Figma'].map((tool) => (
+                      <span key={tool} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Education & Certifications */}
+          <section id="education" className="py-20 px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Education & Certifications
+                </span>
+              </h2>
+              
+              {/* Education */}
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold mb-6 text-purple-400">Education</h3>
+                <div className="space-y-4">
+                  <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                    <div className="flex items-start gap-4">
+                      <i data-lucide="graduation-cap" className="text-purple-400 w-6 h-6 flex-shrink-0"></i>
+                      <div>
+                        <h4 className="text-xl font-bold">Bachelor of Science in Information Technology</h4>
+                        <p className="text-purple-300">Dr. Yanga's Colleges, Inc.</p>
+                        <p className="text-gray-400 text-sm">2022 – Present</p>
+                        <p className="text-gray-400 text-sm mt-2">Expected OJT Date: January 2026</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                    <div className="flex items-start gap-4">
+                      <i data-lucide="graduation-cap" className="text-purple-400 w-6 h-6 flex-shrink-0"></i>
+                      <div>
+                        <h4 className="text-xl font-bold">Senior High Graduate with Honors</h4>
+                        <p className="text-purple-300">Dr. Yanga's Colleges, Inc.</p>
+                        <p className="text-gray-400 text-sm">2020 – 2022</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-purple-400">Certifications & Training</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    'AgentBlazer Champion Workshop',
+                    'Introduction to Cybersecurity',
+                    'Huawei Academy',
+                    'IRCITE 2023',
+                    'Regional Cybersecurity Conference 2025',
+                    '4th Regional Cybersecurity Conference'
+                  ].map((cert) => (
+                    <div key={cert} className="bg-slate-800/50 p-4 rounded-xl border border-purple-500/20 flex items-center gap-3">
+                      <i data-lucide="award" className="text-purple-400 w-5 h-5 flex-shrink-0"></i>
+                      <span className="text-gray-300">{cert}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="py-12 px-4 bg-slate-900 border-t border-purple-500/20">
+            <div className="max-w-6xl mx-auto text-center">
+              <p className="text-gray-400 mb-4">Let's connect and build something amazing together!</p>
+              <div className="flex gap-4 justify-center">
+                <a href="mailto:markjamesrogelio@gmail.com" className="text-purple-400 hover:text-purple-300">
+                  <i data-lucide="mail" className="w-6 h-6"></i>
+                </a>
+                <a href="tel:+639603247894" className="text-purple-400 hover:text-purple-300">
+                  <i data-lucide="phone" className="w-6 h-6"></i>
+                </a>
+              </div>
+              <p className="text-gray-500 text-sm mt-6">© 2025 Mark James Rogelio. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<Portfolio />, document.getElementById('root'));
+  </script>
+</body>
+</html>
