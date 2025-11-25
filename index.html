@@ -96,47 +96,43 @@
             </div>
           </section>
 
-          {/* About Section */}
-          <section id="about" className="py-20 px-4 bg-slate-900/50">
+          {/* Skills Section */}
+          <section id="skills" className="py-20 px-4 bg-slate-900/50">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-4xl font-bold mb-12 text-center">
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  About Me
+                  Technical Skills
                 </span>
               </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Soft Skills</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    {['Problem Solving & Troubleshooting', 'Analytical & Critical Thinking', 'Communication & Interpersonal Skills', 'Team Collaboration', 'Time Management', 'Adaptability'].map((skill) => (
-                      <li key={skill} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                        {skill}
-                      </li>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Languages</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Python', 'Java', 'HTML/CSS', 'PHP'].map((lang) => (
+                      <span key={lang} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {lang}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Languages</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span>English</span>
-                        <span className="text-purple-400">Fluent</span>
-                      </div>
-                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                        <div className="h-full w-11/12 bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <span>Tagalog</span>
-                        <span className="text-purple-400">Native</span>
-                      </div>
-                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                        <div className="h-full w-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                      </div>
-                    </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Skills</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['AI', 'Prompt Engineering', 'UI/UX Design'].map((skill) => (
+                      <span key={skill} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                  <h3 className="text-xl font-bold mb-4 text-purple-400">Tools</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['SQL', 'Git/Github', 'React', 'OpenAI', 'VS Code', 'Figma'].map((tool) => (
+                      <span key={tool} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
+                        {tool}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -231,49 +227,6 @@
             </div>
           </section>
 
-          {/* Skills Section */}
-          <section id="skills" className="py-20 px-4 bg-slate-900/50">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Technical Skills
-                </span>
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
-                  <h3 className="text-xl font-bold mb-4 text-purple-400">Languages</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['Python', 'Java', 'HTML/CSS', 'PHP'].map((lang) => (
-                      <span key={lang} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
-                  <h3 className="text-xl font-bold mb-4 text-purple-400">Skills</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['AI', 'Prompt Engineering', 'UI/UX Design'].map((skill) => (
-                      <span key={skill} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
-                  <h3 className="text-xl font-bold mb-4 text-purple-400">Tools</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['SQL', 'Git/Github', 'React', 'OpenAI', 'VS Code', 'Figma'].map((tool) => (
-                      <span key={tool} className="px-4 py-2 bg-purple-600/30 text-purple-300 rounded-lg text-sm">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Education & Certifications */}
           <section id="education" className="py-20 px-4">
             <div className="max-w-6xl mx-auto">
@@ -308,6 +261,16 @@
                       </div>
                     </div>
                   </div>
+                  <div className="bg-slate-800/50 p-6 rounded-xl border border-purple-500/20">
+                    <div className="flex items-start gap-4">
+                      <i data-lucide="graduation-cap" className="text-purple-400 w-6 h-6 flex-shrink-0"></i>
+                      <div>
+                        <h4 className="text-xl font-bold">Junior High Graduate with Honors</h4>
+                        <p className="text-purple-300">Cherubim Montessori School</p>
+                        <p className="text-gray-400 text-sm">2019 – 2020</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -333,6 +296,53 @@
             </div>
           </section>
 
+          {/* About Section */}
+          <section id="about" className="py-20 px-4 bg-slate-900/50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  About Me
+                </span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
+                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Soft Skills</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    {['Problem Solving & Troubleshooting', 'Analytical & Critical Thinking', 'Communication & Interpersonal Skills', 'Team Collaboration', 'Time Management', 'Adaptability'].map((skill) => (
+                      <li key={skill} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-slate-800/50 p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
+                  <h3 className="text-2xl font-bold mb-4 text-purple-400">Languages</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span>English</span>
+                        <span className="text-purple-400">Fluent</span>
+                      </div>
+                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full w-11/12 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span>Tagalog</span>
+                        <span className="text-purple-400">Native</span>
+                      </div>
+                      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full w-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
           {/* Footer */}
           <footer className="py-12 px-4 bg-slate-900 border-t border-purple-500/20">
             <div className="max-w-6xl mx-auto text-center">
@@ -355,4 +365,5 @@
     ReactDOM.render(<Portfolio />, document.getElementById('root'));
   </script>
 </body>
+
 </html>
